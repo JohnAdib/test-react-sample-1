@@ -7,11 +7,13 @@ function BoardHeader(props) {
 
   let headerClass =
     "flex flex-row flex-nowrap justify-center flex-none gap-2 lg:gap-4 p-1 backdrop-blur-md bg-black/20 text-white";
-
+  console.log(data);
   return (
     <header className={headerClass}>
       <Brand link={data.brandLink}>{data.brand}</Brand>
-      <BoardTitle>{data.title}</BoardTitle>
+      <BoardTitle onChangeBoardTitle={data.events.onChangeBoardTitle}>
+        {data.title}
+      </BoardTitle>
       <div className='grow'></div>
       <Avatar src={data.userAvatar} alt={data.userName}></Avatar>
     </header>

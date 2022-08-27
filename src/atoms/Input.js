@@ -1,5 +1,5 @@
 function Input(props) {
-  let inputClass = "text-black outline-2 outline-blue-600 rounded";
+  let inputClass = "text-black outline-2 outline-blue-600 rounded px-2";
 
   return (
     <input

@@ -12,7 +12,7 @@ function BoardTemplate(props) {
   //   return index !== "lists";
   // });
 
-  // console.log(boardOptions);
+  console.log(boardOptions);
 
   let pageStyle =
     "h-screen select-none flex flex-col bg-[" + boardOptions.background + "]";
@@ -20,7 +20,10 @@ function BoardTemplate(props) {
 
   return (
     <div className={pageStyle}>
-      <BoardHeader data={boardOptions} />
+      <BoardHeader
+        data={boardOptions}
+        onChangeBoardTitle={data.events.onChangeBoardTitle}
+      />
       <BoardLists data={data.lists} />
     </div>
   );
