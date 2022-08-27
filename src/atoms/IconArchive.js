@@ -1,4 +1,4 @@
-function iconArchive() {
+function IconArchive() {
   // https://icons.getbootstrap.com/icons/archive/
   return (
     <svg
@@ -14,4 +14,4 @@ function iconArchive() {
   );
 }
 
-export default iconArchive;
+export default IconArchive;

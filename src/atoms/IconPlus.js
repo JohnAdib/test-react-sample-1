@@ -1,4 +1,4 @@
-function iconPlus() {
+function IconPlus() {
   // https://icons.getbootstrap.com/icons/plus/
   return (
     <svg
@@ -14,4 +14,4 @@ function iconPlus() {
   );
 }
 
-export default iconPlus;
+export default IconPlus;

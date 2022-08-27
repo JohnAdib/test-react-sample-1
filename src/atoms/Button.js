@@ -1,4 +1,4 @@
-function button(props) {
+function Button(props) {
   return (
     <button className={props.className} onClick={props.onClick}>
       {props.children}
@@ -6,4 +6,4 @@ function button(props) {
   );
 }
 
-export default button;
+export default Button;

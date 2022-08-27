@@ -4,7 +4,6 @@ function BoardLists(props) {
   return (
     <main className='grow p-2'>
       <FormAddList />
-      <FormAddList />
     </main>
   );
 }

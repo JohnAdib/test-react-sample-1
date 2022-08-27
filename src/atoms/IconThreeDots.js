@@ -1,4 +1,4 @@
-function iconThreeDots() {
+function IconThreeDots() {
   // https://icons.getbootstrap.com/icons/three-dots/
   return (
     <svg
@@ -14,4 +14,4 @@ function iconThreeDots() {
   );
 }
 
-export default iconThreeDots;
+export default IconThreeDots;

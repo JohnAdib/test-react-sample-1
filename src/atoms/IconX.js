@@ -1,4 +1,4 @@
-function iconX() {
+function IconX() {
   // https://icons.getbootstrap.com/icons/x/
   return (
     <svg
@@ -14,4 +14,4 @@ function iconX() {
   );
 }
 
-export default iconX;
+export default IconX;
