@@ -1,7 +1,7 @@
 import "./../atoms/input";
 import "./../atoms/button";
 
-function addListForm(props) {
+function FormAddList(props) {
   return (
     <div>
       <input
@@ -15,4 +15,4 @@ function addListForm(props) {
   );
 }
 
-export default addListForm;
+export default FormAddList;

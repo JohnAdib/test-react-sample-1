@@ -1,7 +1,12 @@
-// import "./../molecules/addList";
+import FormAddList from "./../molecules/FormAddList";
 
 function BoardLists(props) {
-  return <main className='bg-red-50'>{/* <addList /> */} Lists</main>;
+  return (
+    <main className='bg-red-50'>
+      <FormAddList />
+      <FormAddList />
+    </main>
+  );
 }
 
 export default BoardLists;
