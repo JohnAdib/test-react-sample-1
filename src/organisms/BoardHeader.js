@@ -9,18 +9,20 @@ function BoardHeader(props) {
   let brandColor = "text-" + props.color + "-700";
 
   return (
-    <header className='flex flex-row flex-nowrap flex-none gap-2 bg-gray-100 px-2 py-1'>
-      <div class='grow truncate'>
-        <BoardTitle>test</BoardTitle>
-      </div>
-
-      <div class='flex-none'>
+    <header className='flex flex-row flex-nowrap flex-none gap-2 lg:gap-4 bg-gray-100 p-1'>
+      <div className='flex-none'>
         <Brand color={brandColor} link='https://MrAdib.com'>
           MrAdib
         </Brand>
       </div>
 
-      <div class='flex-none'>
+      <div className='truncate'>
+        <BoardTitle>test</BoardTitle>
+      </div>
+
+      <div className='grow'></div>
+
+      <div className='flex-none'>
         <Avatar src={avatar} alt='MrAdib'></Avatar>
       </div>
     </header>
