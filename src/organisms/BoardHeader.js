@@ -7,7 +7,7 @@ function BoardHeader(props) {
 
   let headerClass =
     "flex flex-row flex-nowrap justify-center flex-none gap-2 lg:gap-4 p-1 backdrop-blur-md bg-black/20 text-white";
-  console.log(data);
+
   return (
     <header className={headerClass}>
       <Brand link={data.brandLink}>{data.brand}</Brand>
