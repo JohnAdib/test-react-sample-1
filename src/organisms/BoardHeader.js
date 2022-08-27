@@ -1,6 +1,7 @@
 import Avatar from "../molecules/Avatar";
 import BoardTitle from "../molecules/BoardTitle";
 import Brand from "../molecules/Brand";
+import avatar from "./../static/img/avatar.png";
 
 function BoardHeader(props) {
   // possible values
@@ -20,7 +21,7 @@ function BoardHeader(props) {
       </div>
 
       <div class='flex-none'>
-        <Avatar src='https://MrAdib.com' alt='MrAdib'></Avatar>
+        <Avatar src={avatar} alt='MrAdib'></Avatar>
       </div>
     </header>
   );
