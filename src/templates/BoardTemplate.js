@@ -1,7 +1,7 @@
 import BoardHeader from "./../organisms/BoardHeader";
 import BoardLists from "./../organisms/BoardLists";
 
-function BoardLayout(props) {
+function BoardTemplate(props) {
   const { data } = props;
 
   // console.log(data);
@@ -14,12 +14,16 @@ function BoardLayout(props) {
 
   // console.log(boardOptions);
 
+  let pageStyle =
+    "h-screen select-none flex flex-col bg-[" + boardOptions.background + "]";
+  // bg-[#0079bf] bg-[#00aecc]
+
   return (
-    <div>
+    <div className={pageStyle}>
       <BoardHeader data={boardOptions} />
       <BoardLists data={data.lists} />
     </div>
   );
 }
 
-export default BoardLayout;
+export default BoardTemplate;

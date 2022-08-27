@@ -2,7 +2,7 @@ import FormAddList from "./../molecules/FormAddList";
 
 function BoardLists(props) {
   return (
-    <main className='bg-red-50'>
+    <main className='grow p-2'>
       <FormAddList />
       <FormAddList />
     </main>
