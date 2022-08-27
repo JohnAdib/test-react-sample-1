@@ -9,8 +9,7 @@ function BoardTitle(props) {
     // text-red-700 text-green-700 text-blue-700
   }
 
-  let LogoClass = BrandColor + " text-xl";
-  let H1Class = BrandColor + "";
+  let LogoClass = props.brandColor + " text-xl";
 
   return (
     <a
@@ -18,7 +17,7 @@ function BoardTitle(props) {
       className='flex flex-row flwx-nowrap flex-none items-center gap-1 lg:gap-2 px-2 leading-10 transition hover:bg-gray-200 active:bg-gray-300'
     >
       <Logo className={LogoClass} size='32' />
-      <H1 className={H1Class}>{props.title}</H1>
+      <H1 className={props.brandColor}>{props.title}</H1>
     </a>
   );
 }
