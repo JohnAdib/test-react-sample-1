@@ -1,3 +1,4 @@
+import BoardTitle from "../molecules/BoardTitle";
 import Brand from "../molecules/Brand";
 
 function BoardHeader(props) {
@@ -6,10 +7,14 @@ function BoardHeader(props) {
   let brandColor = "text-" + props.color + "-700";
 
   return (
-    <header className='bg-gray-100 flex px-2 py-1'>
-      <div class='grow'></div>
-      <div class=''>
-        <Brand title='Kanban' color={brandColor} link='/' />
+    <header className='flex flex-row flex-nowrap flex-none gap-2 bg-gray-100 px-2 py-1'>
+      <div class='grow truncate'>
+        <BoardTitle>test</BoardTitle>
+      </div>
+      <div class='flex-none'>
+        <Brand color={brandColor} link='https://MrAdib.com'>
+          MrAdib Sample Kanban Board
+        </Brand>
       </div>
     </header>
   );
