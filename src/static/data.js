@@ -5,6 +5,7 @@ export const data = {
   logo: "static/img/logo.png",
   avatar: "static/img/avatar.png",
   background: "#0067A5",
+  color: "red",
   lists: [
     {
       id: "1",
