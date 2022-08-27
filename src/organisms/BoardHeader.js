@@ -1,3 +1,4 @@
+import Avatar from "../molecules/Avatar";
 import BoardTitle from "../molecules/BoardTitle";
 import Brand from "../molecules/Brand";
 
@@ -11,10 +12,15 @@ function BoardHeader(props) {
       <div class='grow truncate'>
         <BoardTitle>test</BoardTitle>
       </div>
+
       <div class='flex-none'>
         <Brand color={brandColor} link='https://MrAdib.com'>
-          MrAdib Sample Kanban Board
+          MrAdib
         </Brand>
+      </div>
+
+      <div class='flex-none'>
+        <Avatar src='https://MrAdib.com' alt='MrAdib'></Avatar>
       </div>
     </header>
   );
