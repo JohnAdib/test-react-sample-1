@@ -8,7 +8,7 @@ function FormAddList(props) {
         type='text'
         value='Enter list title ...'
         className='bg-blue-100'
-        onChnage=''
+        test='123'
       />
       <button className='gb-blue-300'>Add list</button>
     </div>

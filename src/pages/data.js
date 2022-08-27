@@ -2,8 +2,10 @@ export const data = {
   id: "1",
   title: "Project Management",
   brand: "MrAdib",
-  logo: "static/img/logo.png",
-  avatar: "static/img/avatar.png",
+  brandLink: "https://MrAdib.com",
+  logo: "./img/logo.png",
+  userName: "Javad Adib",
+  userAvatar: "./img/avatar.png",
   background: "#0067A5",
   color: "red",
   lists: [

@@ -1,5 +1,5 @@
 import BoardLayout from "../templates/BoardLayout";
-import { data } from "../static/data.js";
+import { data } from "../pages/data.js";
 
 function TrelloBoard() {
   const color = "red";
