@@ -4,8 +4,8 @@ import BoardLists from "./../organisms/BoardLists";
 function BoardLayout(props) {
   return (
     <div>
-      <BoardHeader />
-      <BoardLists />
+      <BoardHeader color={props.color} />
+      <BoardLists color={props.color} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import "./../atoms/input";
-import "./../atoms/button";
+import "./../atoms/Input";
+import "./../atoms/Button";
 
 function FormAddList(props) {
   return (
