@@ -1,15 +1,16 @@
 import React from "react";
 import BoardTemplate from "../templates/BoardTemplate";
 import { data } from "../pages/data.js";
+import Session from "../tools/SessionStorage";
 
 class TrelloBoard extends React.Component {
   render() {
-    // window.sessionStorage.setItem("boardData", "value");
+    const session = new Session();
 
-    let myData = window.sessionStorage.getItem("boardData");
+    let myData = session.get("boardData");
 
     if (!myData) {
-      window.sessionStorage.setItem("boardData", { data });
+      session.set("name", { data });
       myData = data;
     }
 
