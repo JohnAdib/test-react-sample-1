@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import TrelloBoard from "./pages/TrelloBoard";
+import KanbanBoard from "./pages/KanbanBoard";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <TrelloBoard />
+    <KanbanBoard />
   </React.StrictMode>
 );
 
