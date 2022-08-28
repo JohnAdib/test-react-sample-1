@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import BoardHeader from "./../organisms/BoardHeader";
 import BoardLists from "./../organisms/BoardLists";
 
@@ -50,10 +50,9 @@ class BoardTemplate extends React.Component {
       cards: []
     };
     myData.lists.push(newListArr);
-    this.setState({ boardData: myData });
+    this.setState({ boardData: myData, inputAddNewList: "" });
     this.props.onBoardDataChange(myData);
     // reset add new list
-    this.state.inputAddNewList = "";
   }
 
   handleChangeInputAddNewCard(event) {
@@ -73,10 +72,8 @@ class BoardTemplate extends React.Component {
       cards: []
     };
     myData.lists.push(newListArr);
-    this.setState({ boardData: myData });
+    this.setState({ boardData: myData, inputAddNewList: "" });
     this.props.onBoardDataChange(myData);
-    // reset add new list
-    this.state.inputAddNewList = "";
   }
 
   render() {
