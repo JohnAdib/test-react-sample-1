@@ -21,6 +21,9 @@ class TrelloBoard extends React.Component {
   }
 
   setData(data) {
+    if (!data) {
+      return;
+    }
     console.log(data);
     const storage = new Storage();
     storage.set("boardData", data);
@@ -29,7 +32,7 @@ class TrelloBoard extends React.Component {
   render() {
     // fill data here
     return (
-      <BoardTemplate data={this.getData()} onUpdate={(i) => this.setData(i)} />
+      <BoardTemplate data={this.getData()} setData={(i) => this.setData(i)} />
     );
   }
 }
