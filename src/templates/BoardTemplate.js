@@ -5,38 +5,36 @@ import BoardLists from "./../organisms/BoardLists";
 class BoardTemplate extends React.Component {
   constructor(props) {
     super(props);
-    const { data } = this.props;
-
-    this.state = { value: data.title };
-
+    const myData = { ...this.props.data };
+    this.state = { value: myData.title };
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
   }
 
   handleBoardTitleChange(event) {
     this.setState({ value: event.target.value });
-    console.log("change title");
+    // this.props.
   }
 
   render() {
-    const { data } = this.props;
+    const myData = { ...this.props.data };
 
-    data.events = {
+    myData.events = {
       onChangeBoardTitle: this.handleBoardTitleChange
     };
 
-    data.title = this.state.value;
+    myData.title = this.state.value;
 
     let pageStyle =
-      "h-screen select-none flex flex-col bg-[" + data.background + "]";
+      "h-screen select-none flex flex-col bg-[" + myData.background + "]";
     // bg-[#0079bf] bg-[#00aecc]
 
     return (
       <div className={pageStyle}>
         <BoardHeader
-          data={data}
-          onChangeBoardTitle={data.events.onChangeBoardTitle}
+          data={myData}
+          onChangeBoardTitle={myData.events.onChangeBoardTitle}
         />
-        <BoardLists data={data.lists} />
+        <BoardLists data={myData.lists} />
       </div>
     );
   }

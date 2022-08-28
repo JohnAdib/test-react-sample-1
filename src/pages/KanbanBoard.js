@@ -1,23 +1,36 @@
 import React from "react";
 import BoardTemplate from "../templates/BoardTemplate";
 import { data } from "../pages/data.js";
-import Session from "../tools/SessionStorage";
+import Storage from "../tools/Storage";
 
 class TrelloBoard extends React.Component {
-  render() {
-    const session = new Session();
+  getData() {
+    const storage = new Storage();
+    let myData = storage.get("boardData");
 
-    let myData = session.get("boardData");
-
-    if (!myData) {
-      session.set("name", { data });
-      myData = data;
+    if (myData) {
+      return myData;
     }
 
-    console.log(myData);
+    return this.nullData();
+  }
 
+  nullData() {
+    this.setData(data);
+    return data;
+  }
+
+  setData(data) {
+    console.log(data);
+    const storage = new Storage();
+    storage.set("boardData", data);
+  }
+
+  render() {
     // fill data here
-    return <BoardTemplate data={myData} />;
+    return (
+      <BoardTemplate data={this.getData()} onUpdate={(i) => this.setData(i)} />
+    );
   }
 }
 
