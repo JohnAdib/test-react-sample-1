@@ -1,21 +1,22 @@
 import FormAddList from "./../molecules/FormAddList";
 
 function BoardLists(props) {
+  console.log(props);
   return (
     <main className='grow py-6 px-6 w-full h-full flex gap-2 snap-x overflow-x-auto'>
-      {listsLayout(props.data)}
+      {listsLayout(props)}
       {elAddNewList(props)}
     </main>
   );
 }
 
-function listsLayout(lists) {
-  return lists.map((val) => (
+function listsLayout(props) {
+  return props.data.map((val) => (
     <section className='snap-end shrink-0 relative basis-72' key={val.id}>
       <div className='bg-slate-100/90 rounded leading-5 text-sm'>
         {elCardTitlecard(val.title)}
         {elCardDesing(val.cards)}
-        {elAddNewCard()}
+        {elAddNewCard(props)}
       </div>
     </section>
   ));
@@ -82,8 +83,16 @@ function elCardDesignTags(tags) {
   );
 }
 
-function elAddNewCard(card) {
-  return <footer className='p-2.5'>Add a cards...</footer>;
+function elAddNewCard(props) {
+  return (
+    <footer className='p-2.5'>
+      <FormAddList
+        onSubmitNewList={props.onSubmitNewList}
+        inputAddNewList={props.inputAddNewList}
+        onChangeInputAddNewList={props.onChangeInputAddNewList}
+      />
+    </footer>
+  );
 }
 
 function elAddNewList(props) {

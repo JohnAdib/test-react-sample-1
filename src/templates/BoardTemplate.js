@@ -16,6 +16,10 @@ class BoardTemplate extends React.Component {
     this.handleChangeInputAddNewList =
       this.handleChangeInputAddNewList.bind(this);
     this.handleSubmitNewList = this.handleSubmitNewList.bind(this);
+
+    this.handleChangeInputAddNewCard =
+      this.handleChangeInputAddNewCard.bind(this);
+    this.handleSubmitNewCard = this.handleSubmitNewCard.bind(this);
   }
 
   handleBoardTitleChange(event) {
@@ -40,7 +44,29 @@ class BoardTemplate extends React.Component {
     if (!newTitle) {
       return;
     }
+    const newListArr = {
+      id: myData.lists.length + 1,
+      title: newTitle,
+      cards: []
+    };
+    myData.lists.push(newListArr);
+    this.setState({ boardData: myData });
+    this.props.onBoardDataChange(myData);
+    // reset add new list
+    this.state.inputAddNewList = "";
+  }
 
+  handleChangeInputAddNewCard(event) {
+    this.setState({ inputAddNewCard: event.target.value });
+  }
+
+  handleSubmitNewCard(event) {
+    event.preventDefault();
+    const myData = { ...this.state.boardData };
+    let newTitle = this.state.inputAddNewCard;
+    if (!newTitle) {
+      return;
+    }
     const newListArr = {
       id: myData.lists.length + 1,
       title: newTitle,
@@ -71,6 +97,9 @@ class BoardTemplate extends React.Component {
           onSubmitNewList={this.handleSubmitNewList}
           inputAddNewList={this.state.inputAddNewList}
           onChangeInputAddNewList={this.handleChangeInputAddNewList}
+          onSubmitNewCard={this.handleSubmitNewCard}
+          inputAddNewCard={this.state.inputAddNewCard}
+          onChangeInputAddNewCard={this.handleChangeInputAddNewCard}
         />
       </div>
     );
