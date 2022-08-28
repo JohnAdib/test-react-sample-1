@@ -6,7 +6,7 @@ function BoardHeader(props) {
   const { data } = props;
 
   let headerClass =
-    "flex flex-row flex-nowrap justify-center flex-none gap-2 lg:gap-4 p-1.5 leading-8 backdrop-blur-md bg-black/20 text-white";
+    "flex flex-row flex-nowrap justify-center flex-none gap-2 lg:gap-4 py-1.5 px-1 leading-8 backdrop-blur-md bg-black/20 text-white";
 
   return (
     <header className={headerClass}>

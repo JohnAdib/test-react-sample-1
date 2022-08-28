@@ -12,7 +12,7 @@ function FormAddList(props) {
     setActive(false);
   };
 
-  let newListContainer = "relative rounded transition p-1";
+  let newListContainer = "relative rounded transition ease-in-out	p-1";
   let addAnotherListClass =
     "flex w-full flex-row flex-nowrap relative flex-none items-center rounded px-2 cursor-pointer transition text-white leading-8";
   let formClass = "flex1 flex-row gap-1 rounded";
@@ -20,7 +20,6 @@ function FormAddList(props) {
   if (isFormVisible) {
     newListContainer += " bg-slate-100 ";
     addAnotherListClass += " hidden";
-    newListContainer += " ";
   } else {
     newListContainer += " bg-white/20 hover:bg-white/30 focus:bg-white/40 ";
     formClass += " hidden";
@@ -33,11 +32,12 @@ function FormAddList(props) {
         <span className='grow'>Add another list</span>
       </div>
 
-      <form className={formClass}>
+      <form className={formClass} onSubmit={props.onSubmitNewList}>
         <Input
           type='text'
+          value={props.inputAddNewList}
           placeholder='Enter list title...'
-          OnChange={props.onAddNewList}
+          onChange={props.onChangeInputAddNewList}
           onBlur={hideEditInput}
           className='w-full grow mb-1 leading-9'
         />

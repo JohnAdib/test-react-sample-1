@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BoardHeader from "./../organisms/BoardHeader";
 import BoardLists from "./../organisms/BoardLists";
 
@@ -6,10 +6,15 @@ class BoardTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardData: this.props.data
+      boardData: this.props.data,
+      inputAddNewList: ""
     };
 
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
+
+    this.handleChangeInputAddNewList =
+      this.handleChangeInputAddNewList.bind(this);
+    this.handleSubmitNewList = this.handleSubmitNewList.bind(this);
   }
 
   handleBoardTitleChange(event) {
@@ -23,15 +28,24 @@ class BoardTemplate extends React.Component {
     this.props.onBoardDataChange(myData);
   }
 
-  handleAddNewList(event) {
-    console.log(222);
+  handleChangeInputAddNewList(event) {
+    this.setState({ inputAddNewList: event.target.value });
+  }
+
+  handleSubmitNewList(event) {
+    event.preventDefault();
     const myData = { ...this.state.boardData };
-    let newTitle = event.target.value;
+    let newTitle = this.state.inputAddNewList;
     if (!newTitle) {
       return;
     }
-    myData.title = newTitle;
-    console.log(typeof myData);
+
+    const newListArr = {
+      id: myData.lists.length + 1,
+      title: newTitle,
+      cards: []
+    };
+    myData.lists.push(newListArr);
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
   }
@@ -51,7 +65,9 @@ class BoardTemplate extends React.Component {
         />
         <BoardLists
           data={this.state.boardData.lists}
-          onAddNewList={this.handleAddNewList}
+          onSubmitNewList={this.handleSubmitNewList}
+          inputAddNewList={this.state.inputAddNewList}
+          onChangeInputAddNewList={this.handleChangeInputAddNewList}
         />
       </div>
     );
