@@ -1,10 +1,10 @@
-function IconThreeDots() {
+function IconThreeDots(props) {
   // https://icons.getbootstrap.com/icons/three-dots/
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='16'
-      height='16'
+      width={props.size}
+      height={props.size}
       fill='currentColor'
       className='bi bi-three-dots'
       viewBox='0 0 16 16'

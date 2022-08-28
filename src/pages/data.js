@@ -6,7 +6,7 @@ export const data = {
   logo: "./img/logo.png",
   userName: "Javad Adib",
   userAvatar: "./img/avatar.png",
-  background: "#00aecc",
+  background: "#0079bf",
   color: "red",
   lists: [
     {

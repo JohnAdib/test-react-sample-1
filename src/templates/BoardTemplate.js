@@ -23,9 +23,22 @@ class BoardTemplate extends React.Component {
     this.props.onBoardDataChange(myData);
   }
 
+  handleAddNewList(event) {
+    console.log(222);
+    const myData = { ...this.state.boardData };
+    let newTitle = event.target.value;
+    if (!newTitle) {
+      return;
+    }
+    myData.title = newTitle;
+    console.log(typeof myData);
+    this.setState({ boardData: myData });
+    this.props.onBoardDataChange(myData);
+  }
+
   render() {
     let pageStyle =
-      "h-screen select-none flex flex-col bg-[" +
+      "h-screen overflow-hidden select-none flex flex-col bg-[" +
       this.state.boardData.background +
       "]";
     // bg-[#0079bf] bg-[#00aecc]
@@ -36,7 +49,10 @@ class BoardTemplate extends React.Component {
           data={this.state.boardData}
           onChangeBoardTitle={this.handleBoardTitleChange}
         />
-        <BoardLists data={this.state.boardData.lists} />
+        <BoardLists
+          data={this.state.boardData.lists}
+          onAddNewList={this.handleAddNewList}
+        />
       </div>
     );
   }

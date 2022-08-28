@@ -3,8 +3,8 @@ function IconX() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='16'
-      height='16'
+      width={props.size}
+      height={props.size}
       fill='currentColor'
       className='bi bi-x'
       viewBox='0 0 16 16'
