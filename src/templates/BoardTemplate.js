@@ -7,7 +7,8 @@ class BoardTemplate extends React.Component {
     super(props);
     this.state = {
       boardData: this.props.data,
-      inputAddNewList: ""
+      inputAddNewList: "",
+      inputAddNewCard: ""
     };
 
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
@@ -48,6 +49,8 @@ class BoardTemplate extends React.Component {
     myData.lists.push(newListArr);
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
+    // reset add new list
+    this.state.inputAddNewList = "";
   }
 
   render() {

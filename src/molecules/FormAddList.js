@@ -8,7 +8,16 @@ function FormAddList(props) {
   const showEditInput = () => {
     setActive(true);
   };
-  const hideEditInput = () => {
+  const hideEditInput = (e) => {
+    if (
+      e.relatedTarget &&
+      e.relatedTarget.parentNode.constructor.name === "HTMLFormElement"
+    ) {
+      if (!e.target.value) {
+        e.target.focus();
+      }
+      return true;
+    }
     setActive(false);
   };
 
