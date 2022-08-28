@@ -33,7 +33,7 @@ function FormAddList(props) {
         <span className='grow'>Add another list</span>
       </div>
 
-      <form class={formClass}>
+      <form className={formClass}>
         <Input
           type='text'
           placeholder='Enter list title...'

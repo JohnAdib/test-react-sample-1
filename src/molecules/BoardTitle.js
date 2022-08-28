@@ -19,7 +19,7 @@ function BoardTitle(props) {
   }
 
   return (
-    <div className='flex flex-row flwx-nowrap relative flex-none items-center gap-1 lg:gap-2 px-2 leading-7 rounded transition hover:bg-white/20 focus:bg-white/40'>
+    <div className='flex flex-row flwx-nowrap relative flex-none items-center gap-1 lg:gap-2 px-2 rounded transition hover:bg-white/20 focus:bg-white/40'>
       <H1 className={h1Class} onClick={showEditInput}>
         {props.children}
       </H1>
