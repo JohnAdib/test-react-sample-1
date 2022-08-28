@@ -4,39 +4,47 @@ import Button from "./../atoms/Button";
 import IconPlus from "./../atoms/IconPlus";
 
 function FormAddList(props) {
-  const [isShowInput, setActive] = useState(false);
+  const [isFormVisible, setActive] = useState(false);
   const showEditInput = () => {
-    // setActive(!isShowInput);
     setActive(true);
   };
   const hideEditInput = () => {
     setActive(false);
   };
 
-  let inputClass = "absolute inset-0 font-semibold z-10";
-  if (!isShowInput) {
-    inputClass += " hidden";
+  let newListContainer = "relative rounded transition p-1";
+  let addAnotherListClass =
+    "flex w-full flex-row flex-nowrap relative flex-none items-center rounded px-2 cursor-pointer transition text-white leading-8";
+  let formClass = "flex1 flex-row gap-1 rounded";
+
+  if (isFormVisible) {
+    newListContainer += " bg-slate-100 ";
+    addAnotherListClass += " hidden";
+    newListContainer += " ";
+  } else {
+    newListContainer += " bg-white/20 hover:bg-white/30 focus:bg-white/40 ";
+    formClass += " hidden";
   }
 
   return (
-    <div className='flex w-full flex-row flwx-nowrap relative flex-none items-center gap-1 lg:gap-2 leading-10 rounded transition hover:bg-white/20 focus:bg-white/40'>
-      <div
-        className='flex w-full flex-row flwx-nowrap relative flex-none items-center rounded px-2 text-white bg-white/20 cursor-pointer'
-        onClick={showEditInput}
-      >
-        <IconPlus size='30' />
+    <div className={newListContainer}>
+      <div className={addAnotherListClass} onClick={showEditInput}>
+        <IconPlus size='26' />
         <span className='grow'>Add another list</span>
       </div>
 
-      <Input
-        type='text'
-        placeholder='Enter list title ...'
-        OnChange={props.onAddNewList}
-        onBlur={hideEditInput}
-        className={inputClass}
-      />
-
-      <Button className='p-2'>Add list</Button>
+      <form class={formClass}>
+        <Input
+          type='text'
+          placeholder='Enter list title...'
+          OnChange={props.onAddNewList}
+          onBlur={hideEditInput}
+          className='w-full grow mb-1 leading-9'
+        />
+        <Button className='px-3 py-1 rounded leading-7 bg-blue-600 hover:bg-blue-800 text-white'>
+          Add list
+        </Button>
+      </form>
     </div>
   );
 }

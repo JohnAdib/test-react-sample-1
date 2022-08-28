@@ -10,6 +10,7 @@ function Input(props) {
       onChange={props.onChange}
       onBlur={props.onBlur}
       className={inputClass}
+      maxLength='200'
       ref={(input) => input && input.focus()}
     />
   );
