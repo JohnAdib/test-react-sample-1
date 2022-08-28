@@ -32,7 +32,10 @@ class TrelloBoard extends React.Component {
   render() {
     // fill data here
     return (
-      <BoardTemplate data={this.getData()} setData={(i) => this.setData(i)} />
+      <BoardTemplate
+        data={this.getData()}
+        onBoardDataChange={(i) => this.setData(i)}
+      />
     );
   }
 }

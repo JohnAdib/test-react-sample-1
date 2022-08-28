@@ -6,7 +6,7 @@ class BoardTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardData: { ...this.props.data }
+      boardData: this.props.data
     };
 
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
@@ -15,29 +15,24 @@ class BoardTemplate extends React.Component {
   handleBoardTitleChange(event) {
     const myData = { ...this.state.boardData };
     myData.title = event.target.value;
-
-    this.props.setData(myData);
     this.setState({ boardData: myData });
+    this.props.onBoardDataChange(myData);
   }
 
   render() {
-    const myData = { ...this.state.boardData };
-
-    myData.events = {
-      onChangeBoardTitle: this.handleBoardTitleChange
-    };
-
     let pageStyle =
-      "h-screen select-none flex flex-col bg-[" + myData.background + "]";
+      "h-screen select-none flex flex-col bg-[" +
+      this.state.boardData.background +
+      "]";
     // bg-[#0079bf] bg-[#00aecc]
 
     return (
       <div className={pageStyle}>
         <BoardHeader
-          data={myData}
-          onChangeBoardTitle={myData.events.onChangeBoardTitle}
+          data={this.state.boardData}
+          onChangeBoardTitle={this.handleBoardTitleChange}
         />
-        <BoardLists data={myData.lists} />
+        <BoardLists data={this.state.boardData.lists} />
       </div>
     );
   }

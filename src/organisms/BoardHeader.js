@@ -11,7 +11,7 @@ function BoardHeader(props) {
   return (
     <header className={headerClass}>
       <Brand link={data.brandLink}>{data.brand}</Brand>
-      <BoardTitle onChangeBoardTitle={data.events.onChangeBoardTitle}>
+      <BoardTitle onChangeBoardTitle={props.onChangeBoardTitle}>
         {data.title}
       </BoardTitle>
       <div className='grow'></div>
