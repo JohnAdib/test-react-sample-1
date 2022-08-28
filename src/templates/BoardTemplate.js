@@ -14,7 +14,11 @@ class BoardTemplate extends React.Component {
 
   handleBoardTitleChange(event) {
     const myData = { ...this.state.boardData };
-    myData.title = event.target.value;
+    let newTitle = event.target.value;
+    if (!newTitle) {
+      newTitle = "Board Title";
+    }
+    myData.title = newTitle;
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
   }
