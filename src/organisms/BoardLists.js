@@ -12,7 +12,7 @@ function BoardLists(props) {
 function listsLayout(lists) {
   return lists.map((val) => (
     <section className='snap-end shrink-0 relative basis-72' key={val.id}>
-      <div className='bg-gray-100/90 rounded leading-5 text-sm'>
+      <div className='bg-slate-100/90 rounded leading-5 text-sm'>
         {elCardTitlecard(val.title)}
         {elCardDesing(val.cards)}
         {elAddNewCard()}
@@ -24,23 +24,66 @@ function listsLayout(lists) {
 function elCardTitlecard(title) {
   return (
     <header className='p-2.5 font-semibold'>
-      <div className=''>{title}</div>
+      <div className='px-2'>{title}</div>
     </header>
   );
 }
 
 function elCardDesing(card) {
   return (
-    <div class='p-2.5'>
+    <div className='px-2.5 leading-6'>
       {card.map((myCards) => (
-        <div>{myCards.title}</div>
+        <div
+          className='bg-white shadow-sm hover:shaodw-md mb-2 px-2 py-1.5 rounded transition hover:bg-white/50 cursor-pointer'
+          key={myCards.id}
+        >
+          {elCardDesignTags(myCards.tag)}
+          {myCards.title}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function elCardDesignTags(tags) {
+  // const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  const colors = [
+    "bg-red-500",
+    "bg-blue-500",
+    "bg-green-500",
+    "bg-green-500",
+    "bg-zinc-500",
+    "bg-orange-500",
+    "bg-amber-500",
+    "bg-yellow-500",
+    "bg-lime-500",
+    "bg-emerald-500",
+    "bg-cyan-500",
+    "bg-sky-500",
+    "bg-purple-500",
+    "bg-fuchsia-500",
+    "bg-pink-500",
+    "bg-rose-500"
+  ];
+  return (
+    <div className='leading-6 flex gap-1'>
+      {tags.map((myTag) => (
+        <div
+          className={
+            "px-2 rounded transition text-white " +
+            colors[Math.floor(Math.random() * colors.length)]
+          }
+          key={myTag}
+        >
+          {myTag}
+        </div>
       ))}
     </div>
   );
 }
 
 function elAddNewCard(card) {
-  return <footer class='p-2.5'>"add a cards..."</footer>;
+  return <footer className='p-2.5'>Add a cards...</footer>;
 }
 
 function elAddNewList(props) {
