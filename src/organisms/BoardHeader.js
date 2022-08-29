@@ -11,11 +11,11 @@ function BoardHeader(props) {
   return (
     <header className={headerClass}>
       <Brand link={data.brandLink}>{data.brand}</Brand>
-      <h2>
+      <h1>
         <ClickToEdit onChange={props.onChangeBoardTitle}>
           {data.title}
         </ClickToEdit>
-      </h2>
+      </h1>
       <div className='grow'></div>
       <Avatar src={data.userAvatar} alt={data.userName}></Avatar>
     </header>

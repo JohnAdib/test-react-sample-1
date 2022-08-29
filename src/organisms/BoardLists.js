@@ -1,4 +1,5 @@
 import FormAddAfterClick from "./../molecules/FormAddAfterClick";
+import ClickToEdit from "../molecules/ClickToEdit";
 
 function BoardLists(props) {
   return (
@@ -16,7 +17,7 @@ function listsLayout(props) {
       key={val.id}
     >
       <div className='bg-slate-100/90 rounded leading-5 text-sm'>
-        {elCardTitlecard(val.title)}
+        {elCardTitlecard(props, val.id, val.title)}
         {elCardDesing(val.cards)}
         {elAddNewCard(props, val.id)}
       </div>
@@ -24,10 +25,14 @@ function listsLayout(props) {
   ));
 }
 
-function elCardTitlecard(title) {
+function elCardTitlecard(props, listID, listTitle) {
   return (
     <header className='p-2 font-semibold'>
-      <div className='px-2'>{title}</div>
+      <div className='px-2'>
+        <ClickToEdit onChange={props.onChangeListTitle} parent={listID}>
+          {listTitle}
+        </ClickToEdit>
+      </div>
     </header>
   );
 }

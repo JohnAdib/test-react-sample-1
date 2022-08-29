@@ -11,7 +11,10 @@ function ClickToEdit(props) {
     setActive(false);
   };
 
-  let h1Class = "font-semibold truncate cursor-text " + props.color;
+  let divClass = "font-semibold truncate cursor-text";
+  if (props.color) {
+    divClass += props.color;
+  }
   let inputClass = "absolute inset-0 font-semibold z-10";
   if (!isShowInput) {
     inputClass += " hidden";
@@ -19,7 +22,7 @@ function ClickToEdit(props) {
 
   return (
     <div className='flex flex-row flwx-nowrap relative flex-none items-center gap-1 lg:gap-2 px-2 rounded transition hover:bg-white/20 focus:bg-white/40'>
-      <div className={h1Class} onClick={showEditInput}>
+      <div className={divClass} onClick={showEditInput}>
         {props.children}
       </div>
 
@@ -30,6 +33,7 @@ function ClickToEdit(props) {
         onChange={props.onChange}
         onBlur={hideEditInput}
         className={inputClass}
+        parent={props.parent}
       />
     </div>
   );
