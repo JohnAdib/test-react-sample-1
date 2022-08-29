@@ -67,7 +67,7 @@ class BoardTemplate extends React.Component {
     const myData = { ...this.state.boardData };
     let newTitle = event.target.value;
     if (!newTitle) {
-      newTitle = "Board Title";
+      newTitle = "List Title";
     }
     const listId = parseInt(event.target.dataset.parent);
     const listIndex = myData.lists.findIndex((el) => el.id === listId);
@@ -110,7 +110,7 @@ class BoardTemplate extends React.Component {
     const newCardArr = {
       id: lastCardId,
       title: newTitle.trim(),
-      input: this.state.inputAddNewCard,
+      value: this.state.inputAddNewCard,
       tag: tags
     };
     //
@@ -118,6 +118,21 @@ class BoardTemplate extends React.Component {
     // clean input after add
     this.setState({ boardData: myData, inputAddNewCard: "" });
     // save data inside storage
+    this.props.onBoardDataChange(myData);
+  }
+
+  handleChangeCard(event) {
+    const myData = { ...this.state.boardData };
+    let newTitle = event.target.value;
+    if (!newTitle) {
+      newTitle = "Board Title";
+    }
+    const listId = parseInt(event.target.dataset.parent);
+    const listIndex = myData.lists.findIndex((el) => el.id === listId);
+    // change title
+    myData.lists[listIndex].title = newTitle;
+
+    this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
   }
 

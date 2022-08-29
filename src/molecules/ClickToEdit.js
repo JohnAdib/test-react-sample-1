@@ -11,11 +11,11 @@ function ClickToEdit(props) {
     setActive(false);
   };
 
-  let divClass = "font-semibold truncate cursor-text";
+  let divClass = "truncate cursor-text";
   if (props.color) {
     divClass += props.color;
   }
-  let inputClass = "absolute inset-0 font-semibold z-10";
+  let inputClass = "absolute inset-0 z-10";
   if (!isShowInput) {
     inputClass += " hidden";
   }
@@ -28,7 +28,7 @@ function ClickToEdit(props) {
 
       <Input
         type='text'
-        value={props.children}
+        value={props.value}
         placeholder={props.children}
         onChange={props.onChange}
         onBlur={hideEditInput}

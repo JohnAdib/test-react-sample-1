@@ -12,7 +12,7 @@ function BoardHeader(props) {
     <header className={headerClass}>
       <Brand link={data.brandLink}>{data.brand}</Brand>
       <h1>
-        <ClickToEdit onChange={props.onChangeBoardTitle}>
+        <ClickToEdit value={data.title} onChange={props.onChangeBoardTitle}>
           {data.title}
         </ClickToEdit>
       </h1>
