@@ -23,13 +23,14 @@ function FormAddAfterClick(props) {
     setActive(false);
   };
 
-  let newListContainer = "relative rounded transition ease-in-out p-1";
+  let newListContainer = "relative rounded transition ease-in-out";
   let addAnotherListClass = "flex flex-nowrap items-center cursor-pointer";
   let formClass = "flex1 flex-row gap-1 rounded";
 
   if (props.theme === "black") {
     addAnotherListClass += " text-slate-700";
   } else {
+    newListContainer += " p-1";
     addAnotherListClass += " text-white px-2";
   }
 
