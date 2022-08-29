@@ -15,7 +15,7 @@ function listsLayout(props) {
       <div className='bg-slate-100/90 rounded leading-5 text-sm'>
         {elCardTitlecard(val.title)}
         {elCardDesing(val.cards)}
-        {elAddNewCard(props)}
+        {elAddNewCard(props, val.id)}
       </div>
     </section>
   ));
@@ -82,17 +82,19 @@ function elCardDesignTags(tags) {
   );
 }
 
-function elAddNewCard(props) {
+function elAddNewCard(props, idList) {
   return (
     <footer className='px-2 pb-2'>
       <FormAddAfterClick
         title='Add a card'
-        placeholder='Enter the title for this card...'
+        // placeholder='Enter the title for this card...'
+        placeholder='Enter title for this card #tag1'
         btnText='Add card'
         value={props.inputAddNewCard}
         onChange={props.onChangeInputAddNewCard}
         onSubmit={props.onSubmitNewCard}
         theme='black'
+        idList={idList}
       />
     </footer>
   );

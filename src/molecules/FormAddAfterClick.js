@@ -61,6 +61,7 @@ function FormAddAfterClick(props) {
           onChange={props.onChange}
           onBlur={hideForm}
           className='w-full grow mb-1 leading-9'
+          dataParent={props.idList}
         />
         <Button className='px-3 py-1 rounded leading-7 bg-blue-600 hover:bg-blue-800 text-white'>
           {props.btnText}

@@ -8,7 +8,8 @@ class BoardTemplate extends React.Component {
     this.state = {
       boardData: this.props.data,
       inputAddNewList: "",
-      inputAddNewCard: ""
+      inputAddNewCard: "",
+      inputAddNewCardIdList: ""
     };
 
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
@@ -52,15 +53,21 @@ class BoardTemplate extends React.Component {
     myData.lists.push(newListArr);
     this.setState({ boardData: myData, inputAddNewList: "" });
     this.props.onBoardDataChange(myData);
-    // reset add new list
   }
 
   handleChangeInputAddNewCard(event) {
-    this.setState({ inputAddNewCard: event.target.value });
+    this.setState({
+      inputAddNewCard: event.target.value,
+      inputAddNewCardIdList: event.target.getAttribute("data-parent")
+    });
   }
 
   handleSubmitNewCard(event) {
     event.preventDefault();
+
+    console.log(event);
+    console.log(this.state.inputAddNewCardIdList);
+
     const myData = { ...this.state.boardData };
     let newTitle = this.state.inputAddNewCard;
     if (!newTitle) {
