@@ -70,9 +70,12 @@ class BoardTemplate extends React.Component {
     // get index of list
     const listIndex = myData.lists.findIndex((el) => el.id === listId);
     console.log(listIndex);
+    const lastCardId = myData.lists
+      .map((x) => x.cards.length)
+      .reduce((a, b) => a + b);
 
     const newCardArr = {
-      id: myData.lists.length + 100,
+      id: lastCardId,
       title: newTitle,
       tag: []
     };
