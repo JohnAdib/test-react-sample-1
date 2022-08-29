@@ -21,6 +21,8 @@ class BoardTemplate extends React.Component {
     this.handleChangeInputAddNewCard =
       this.handleChangeInputAddNewCard.bind(this);
     this.handleSubmitNewCard = this.handleSubmitNewCard.bind(this);
+    this.handleChangeCard = this.handleChangeCard.bind(this);
+
     this.updatePageTitle();
   }
 
@@ -69,7 +71,7 @@ class BoardTemplate extends React.Component {
     if (!newTitle) {
       newTitle = "List Title";
     }
-    const listId = parseInt(event.target.dataset.parent);
+    const listId = parseInt(event.target.dataset.father);
     const listIndex = myData.lists.findIndex((el) => el.id === listId);
     // change title
     myData.lists[listIndex].title = newTitle;
@@ -123,18 +125,29 @@ class BoardTemplate extends React.Component {
 
   handleChangeCard(event) {
     const myData = { ...this.state.boardData };
-    let newTitle = event.target.value;
-    if (!newTitle) {
-      newTitle = "Board Title";
+    let newVal = event.target.value;
+    if (!newVal) {
+      newVal = "Board Title";
     }
-    const listId = parseInt(event.target.dataset.parent);
-    const listIndex = myData.lists.findIndex((el) => el.id === listId);
-    // change title
-    myData.lists[listIndex].title = newTitle;
+    const listId = parseInt(event.target.dataset.grandfather);
+    const cardId = parseInt(event.target.dataset.father);
+
+    console.log(myData.lists);
+
+    const listIndex = parseInt(
+      myData.lists.findIndex((el) => el.id === listId)
+    );
+    const cardIndex = myData.lists[listIndex].cards.findIndex(
+      (el) => el.id === cardId
+    );
+
+    myData.lists[listIndex].cards[cardIndex].value = newVal;
 
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
   }
+
+  validateCardTitle(Title) {}
 
   render() {
     let pageStyle =
@@ -158,6 +171,7 @@ class BoardTemplate extends React.Component {
           inputAddNewCard={this.state.inputAddNewCard}
           onChangeInputAddNewCard={this.handleChangeInputAddNewCard}
           onChangeListTitle={this.handleChangeListTitle}
+          onChangeCard={this.handleChangeCard}
         />
       </div>
     );

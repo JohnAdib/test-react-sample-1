@@ -17,22 +17,22 @@ function listsLayout(props) {
       key={val.id}
     >
       <div className='bg-slate-100/90 rounded leading-5 text-sm'>
-        {elCardTitlecard(props, val.id, val.title)}
-        {elCardDesing(props, val.cards)}
+        {elListTitle(props, val.id, val.title)}
+        {elCards(props, val.id, val.cards)}
         {elAddNewCard(props, val.id)}
       </div>
     </section>
   ));
 }
 
-function elCardTitlecard(props, listID, listTitle) {
+function elListTitle(props, listID, listTitle) {
   return (
     <header className='p-2 font-semibold'>
       <div className='px-2'>
         <ClickToEdit
           value={listTitle}
           onChange={props.onChangeListTitle}
-          parent={listID}
+          father={listID}
         >
           {listTitle}
         </ClickToEdit>
@@ -41,7 +41,7 @@ function elCardTitlecard(props, listID, listTitle) {
   );
 }
 
-function elCardDesing(props, card) {
+function elCards(props, listId, card) {
   if (!card) {
     return;
   }
@@ -56,8 +56,9 @@ function elCardDesing(props, card) {
           <div className='overflow-hidden text-ellipsis'>
             <ClickToEdit
               value={myCards.value}
-              onChange={props.onChangeListTitle}
-              parent={1}
+              onChange={props.onChangeCard}
+              father={myCards.id}
+              grandfather={listId}
             >
               {elCardDesignTags(myCards.tag)}
               {myCards.title}

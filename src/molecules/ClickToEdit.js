@@ -33,7 +33,8 @@ function ClickToEdit(props) {
         onChange={props.onChange}
         onBlur={hideEditInput}
         className={inputClass}
-        parent={props.parent}
+        father={props.father}
+        grandfather={props.grandfather}
       />
     </div>
   );

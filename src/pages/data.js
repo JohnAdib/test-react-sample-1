@@ -10,11 +10,11 @@ export const data = {
   color: "red",
   lists: [
     {
-      id: 1,
+      id: 0,
       title: "To do",
       cards: [
         {
-          id: 1,
+          id: 0,
           title: "Plan marketing campain",
           value: "Plan marketing campain #Marketing",
           description:
@@ -22,7 +22,7 @@ export const data = {
           tag: ["Marketing"]
         },
         {
-          id: 2,
+          id: 1,
           title: "Approve legal agreement",
           value: "Approve legal agreement #Legal",
           description:
@@ -30,7 +30,7 @@ export const data = {
           tag: ["Legal"]
         },
         {
-          id: 3,
+          id: 2,
           title: "Schedule recurring client meeting",
           value: "Schedule recurring client meeting #Marketing",
           description:
@@ -40,11 +40,11 @@ export const data = {
       ]
     },
     {
-      id: 2,
+      id: 1,
       title: "Doing",
       cards: [
         {
-          id: 4,
+          id: 3,
           title: "Collect design assets",
           value: "Collect design assets #External #Design",
           description:
@@ -52,7 +52,7 @@ export const data = {
           tag: ["External", "Design"]
         },
         {
-          id: 5,
+          id: 4,
           title: "Create 10 T-shirt options for launch day",
           value: "Create 10 T-shirt options for launch day #Production #Design",
           description:
@@ -60,7 +60,7 @@ export const data = {
           tag: ["Production", "Design"]
         },
         {
-          id: 6,
+          id: 5,
           title: "Update online shop",
           value: "Update online shop #Sales",
           description:
@@ -70,11 +70,11 @@ export const data = {
       ]
     },
     {
-      id: 3,
+      id: 2,
       title: "Done",
       cards: [
         {
-          id: 7,
+          id: 6,
           title: "Review legal agreement",
           value: "Review legal agreement #Legal",
           description:
@@ -82,7 +82,7 @@ export const data = {
           tag: ["Legal"]
         },
         {
-          id: 8,
+          id: 7,
           title: "Custormer survey",
           value: "Custormer survey #External #Marketing",
           description:
