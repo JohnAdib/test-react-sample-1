@@ -20,6 +20,12 @@ class BoardTemplate extends React.Component {
     this.handleChangeInputAddNewCard =
       this.handleChangeInputAddNewCard.bind(this);
     this.handleSubmitNewCard = this.handleSubmitNewCard.bind(this);
+    this.updatePageTitle();
+  }
+
+  updatePageTitle() {
+    document.title =
+      this.state.boardData.title + " | " + this.state.boardData.brand;
   }
 
   handleBoardTitleChange(event) {
@@ -31,6 +37,8 @@ class BoardTemplate extends React.Component {
     myData.title = newTitle;
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
+
+    this.updatePageTitle();
   }
 
   handleChangeInputAddNewList(event) {
