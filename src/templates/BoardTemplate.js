@@ -8,8 +8,7 @@ class BoardTemplate extends React.Component {
     this.state = {
       boardData: this.props.data,
       inputAddNewList: "",
-      inputAddNewCard: "",
-      inputAddNewCardIdList: ""
+      inputAddNewCard: ""
     };
 
     this.handleBoardTitleChange = this.handleBoardTitleChange.bind(this);
@@ -56,23 +55,21 @@ class BoardTemplate extends React.Component {
   }
 
   handleChangeInputAddNewCard(event) {
-    this.setState({
-      inputAddNewCard: event.target.value,
-      inputAddNewCardIdList: event.target.getAttribute("data-parent")
-    });
+    this.setState({ inputAddNewCard: event.target.value });
   }
 
   handleSubmitNewCard(event) {
     event.preventDefault();
 
-    console.log(event);
-    console.log(this.state.inputAddNewCardIdList);
+    // read and update parent id to add card
+    const parentId = event.target[0].getAttribute("data-parent");
 
     const myData = { ...this.state.boardData };
     let newTitle = this.state.inputAddNewCard;
     if (!newTitle) {
       return;
     }
+
     const newListArr = {
       id: myData.lists.length + 1,
       title: newTitle,
