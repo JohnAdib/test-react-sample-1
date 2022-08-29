@@ -1,7 +1,6 @@
-import FormAddList from "./../molecules/FormAddList";
+import FormAddAfterClick from "./../molecules/FormAddAfterClick";
 
 function BoardLists(props) {
-  console.log(props);
   return (
     <main className='grow py-6 px-6 w-full h-full flex gap-2 snap-x overflow-x-auto'>
       {listsLayout(props)}
@@ -24,7 +23,7 @@ function listsLayout(props) {
 
 function elCardTitlecard(title) {
   return (
-    <header className='p-2.5 font-semibold'>
+    <header className='p-2 font-semibold'>
       <div className='px-2'>{title}</div>
     </header>
   );
@@ -32,7 +31,7 @@ function elCardTitlecard(title) {
 
 function elCardDesing(card) {
   return (
-    <div className='px-2.5 leading-6'>
+    <div className='px-2 leading-6'>
       {card.map((myCards) => (
         <div
           className='bg-white shadow-sm hover:shaodw-md mb-2 px-2 py-1.5 rounded transition hover:bg-white/50 cursor-pointer'
@@ -85,11 +84,15 @@ function elCardDesignTags(tags) {
 
 function elAddNewCard(props) {
   return (
-    <footer className='p-2.5'>
-      <FormAddList
-        onSubmitNewList={props.onSubmitNewList}
-        inputAddNewList={props.inputAddNewList}
-        onChangeInputAddNewList={props.onChangeInputAddNewList}
+    <footer className='px-2 pb-2'>
+      <FormAddAfterClick
+        title='Add a card'
+        placeholder='Enter the title for this card...'
+        btnText='Add card'
+        value={props.inputAddNewCard}
+        onChange={props.onChangeInputAddNewCard}
+        onSubmit={props.onSubmitNewCard}
+        theme='black'
       />
     </footer>
   );
@@ -98,10 +101,13 @@ function elAddNewCard(props) {
 function elAddNewList(props) {
   return (
     <div className='snap-start shrink-0 relative basis-72'>
-      <FormAddList
-        onSubmitNewList={props.onSubmitNewList}
-        inputAddNewList={props.inputAddNewList}
-        onChangeInputAddNewList={props.onChangeInputAddNewList}
+      <FormAddAfterClick
+        title='Add another list'
+        placeholder='Enter list title...'
+        btnText='Add List'
+        value={props.inputAddNewList}
+        onChange={props.onChangeInputAddNewList}
+        onSubmit={props.onSubmitNewList}
       />
     </div>
   );
