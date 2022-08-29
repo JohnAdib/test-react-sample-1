@@ -69,21 +69,24 @@ class BoardTemplate extends React.Component {
     }
     // get index of list
     const listIndex = myData.lists.findIndex((el) => el.id === listId);
-    console.log(listIndex);
     const lastCardId = myData.lists
       .map((x) => x.cards.length)
       .reduce((a, b) => a + b);
 
     // extract hashtags
-    const tags = newTitle.split(" ").filter((v) => v.startsWith("#"));
+    const tags = newTitle
+      .split(" ")
+      .filter((v) => v.startsWith("#"))
+      .map((v) => v.replace("#", ""));
     // remove all tags from title
     tags.forEach((x) => {
-      newTitle = newTitle.replace(x, "");
+      newTitle = newTitle.replace("#" + x, "");
     });
 
     const newCardArr = {
       id: lastCardId,
       title: newTitle.trim(),
+      input: this.state.inputAddNewCard,
       tag: tags
     };
     //

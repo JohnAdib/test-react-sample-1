@@ -2,7 +2,7 @@ import FormAddAfterClick from "./../molecules/FormAddAfterClick";
 
 function BoardLists(props) {
   return (
-    <main className='grow py-6 px-6 w-full h-full flex gap-2 snap-x overflow-x-auto'>
+    <main className='grow py-6 px-6 w-full h-full flex flex-row flex-nowrap gap-2 snap-x overflow-x-auto'>
       {listsLayout(props)}
       {elAddNewList(props)}
     </main>
@@ -11,7 +11,7 @@ function BoardLists(props) {
 
 function listsLayout(props) {
   return props.data.map((val) => (
-    <section className='snap-end shrink-0 relative basis-72' key={val.id}>
+    <section className='snap-end shrink-0 relative basis-72 w-72' key={val.id}>
       <div className='bg-slate-100/90 rounded leading-5 text-sm'>
         {elCardTitlecard(val.title)}
         {elCardDesing(val.cards)}
@@ -42,7 +42,7 @@ function elCardDesing(card) {
           key={myCards.id}
         >
           {elCardDesignTags(myCards.tag)}
-          <div>{myCards.title}</div>
+          <div className='overflow-hidden text-ellipsis'>{myCards.title}</div>
         </div>
       ))}
     </div>
@@ -70,11 +70,11 @@ function elCardDesignTags(tags) {
     "bg-rose-500"
   ];
   return (
-    <div className='leading-5 flex gap-1'>
+    <div className='leading-5 flex flex-wrap gap-1'>
       {tags.map((myTag) => (
         <div
           className={
-            "px-2 rounded transition text-white " +
+            "capitalize px-2 rounded transition text-white text-ellipsis overflow-hidden " +
             colors[Math.floor(Math.random() * colors.length)]
           }
           key={myTag}
@@ -106,7 +106,7 @@ function elAddNewCard(props, idList) {
 
 function elAddNewList(props) {
   return (
-    <div className='snap-start shrink-0 relative basis-72'>
+    <div className='flex-none grow-0 snap-start shrink-0a relative basis-72'>
       <FormAddAfterClick
         title='Add another list'
         placeholder='Enter list title...'
