@@ -60,23 +60,27 @@ class BoardTemplate extends React.Component {
 
   handleSubmitNewCard(event) {
     event.preventDefault();
-
-    // read and update parent id to add card
-    const parentId = event.target[0].getAttribute("data-parent");
-
+    // read parent id to add card
+    const listId = parseInt(event.target.dataset.list);
     const myData = { ...this.state.boardData };
     let newTitle = this.state.inputAddNewCard;
     if (!newTitle) {
       return;
     }
+    // get index of list
+    const listIndex = myData.lists.findIndex((el) => el.id === listId);
+    console.log(listIndex);
 
-    const newListArr = {
-      id: myData.lists.length + 1,
+    const newCardArr = {
+      id: myData.lists.length + 100,
       title: newTitle,
-      cards: []
+      tag: []
     };
-    myData.lists.push(newListArr);
-    this.setState({ boardData: myData, inputAddNewList: "" });
+    //
+    myData.lists[listIndex].cards.push(newCardArr);
+    // clean input after add
+    this.setState({ boardData: myData, inputAddNewCard: "" });
+    // save data inside storage
     this.props.onBoardDataChange(myData);
   }
 

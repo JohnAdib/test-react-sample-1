@@ -30,6 +30,10 @@ function elCardTitlecard(title) {
 }
 
 function elCardDesing(card) {
+  if (!card) {
+    return;
+  }
+
   return (
     <div className='px-2 leading-6'>
       {card.map((myCards) => (

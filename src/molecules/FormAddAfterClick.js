@@ -53,7 +53,11 @@ function FormAddAfterClick(props) {
         <span className='grow leading-8'>{props.title}</span>
       </div>
 
-      <form className={formClass} onSubmit={props.onSubmit}>
+      <form
+        className={formClass}
+        onSubmit={props.onSubmit}
+        data-list={props.idList}
+      >
         <Input
           type='text'
           value={props.value}
@@ -61,7 +65,6 @@ function FormAddAfterClick(props) {
           onChange={props.onChange}
           onBlur={hideForm}
           className='w-full grow mb-1 leading-9'
-          dataParent={props.idList}
         />
         <Button className='px-3 py-1 rounded leading-7 bg-blue-600 hover:bg-blue-800 text-white'>
           {props.btnText}

@@ -11,7 +11,6 @@ function Input(props) {
       onBlur={props.onBlur}
       className={inputClass}
       maxLength='200'
-      data-parent={props.dataParent}
       ref={(input) => input && input.focus()}
     />
   );
