@@ -74,10 +74,17 @@ class BoardTemplate extends React.Component {
       .map((x) => x.cards.length)
       .reduce((a, b) => a + b);
 
+    // extract hashtags
+    const tags = newTitle.split(" ").filter((v) => v.startsWith("#"));
+    // remove all tags from title
+    tags.forEach((x) => {
+      newTitle = newTitle.replace(x, "");
+    });
+
     const newCardArr = {
       id: lastCardId,
-      title: newTitle,
-      tag: []
+      title: newTitle.trim(),
+      tag: tags
     };
     //
     myData.lists[listIndex].cards.push(newCardArr);
