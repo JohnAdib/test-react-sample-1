@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Input from "./../atoms/Input";
+import Input from "../atoms/Input";
 
-function BoardTitle(props) {
+function ClickToEdit(props) {
   const [isShowInput, setActive] = useState(false);
   const showEditInput = () => {
     // setActive(!isShowInput);
@@ -27,7 +27,7 @@ function BoardTitle(props) {
         type='text'
         value={props.children}
         placeholder={props.children}
-        onChange={props.onChangeBoardTitle}
+        onChange={props.onChange}
         onBlur={hideEditInput}
         className={inputClass}
       />
@@ -35,4 +35,4 @@ function BoardTitle(props) {
   );
 }
 
-export default BoardTitle;
+export default ClickToEdit;
