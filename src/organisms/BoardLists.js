@@ -11,7 +11,10 @@ function BoardLists(props) {
 
 function listsLayout(props) {
   return props.data.map((val) => (
-    <section className='snap-end shrink-0 relative basis-72 w-72' key={val.id}>
+    <section
+      className='snap-end shrink-0 relative basis-72 w-72 pb-2'
+      key={val.id}
+    >
       <div className='bg-slate-100/90 rounded leading-5 text-sm'>
         {elCardTitlecard(val.title)}
         {elCardDesing(val.cards)}
