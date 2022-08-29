@@ -89,32 +89,12 @@ class BoardTemplate extends React.Component {
     // read parent id to add card
     const listId = parseInt(event.target.dataset.list);
     const myData = { ...this.state.boardData };
-    let newTitle = this.state.inputAddNewCard;
-    if (!newTitle) {
-      return;
-    }
-    // get index of list
     const listIndex = myData.lists.findIndex((el) => el.id === listId);
-    const lastCardId = myData.lists
-      .map((x) => x.cards.length)
-      .reduce((a, b) => a + b);
+    const newCardArr = this.validateCardTitle(
+      myData,
+      this.state.inputAddNewCard
+    );
 
-    // extract hashtags
-    const tags = newTitle
-      .split(" ")
-      .filter((v) => v.startsWith("#"))
-      .map((v) => v.replace("#", ""));
-    // remove all tags from title
-    tags.forEach((x) => {
-      newTitle = newTitle.replace("#" + x, "");
-    });
-
-    const newCardArr = {
-      id: lastCardId,
-      title: newTitle.trim(),
-      value: this.state.inputAddNewCard,
-      tag: tags
-    };
     //
     myData.lists[listIndex].cards.push(newCardArr);
     // clean input after add
@@ -141,13 +121,43 @@ class BoardTemplate extends React.Component {
       (el) => el.id === cardId
     );
 
-    myData.lists[listIndex].cards[cardIndex].value = newVal;
+    const newCardArr = this.validateCardTitle(myData, newVal);
+
+    myData.lists[listIndex].cards[cardIndex] = newCardArr;
 
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
   }
 
-  validateCardTitle(Title) {}
+  validateCardTitle(data, cardVal) {
+    if (!cardVal) {
+      return;
+    }
+    let cardTitle = cardVal;
+    // get index of list
+    const lastCardId = data.lists
+      .map((x) => x.cards.length)
+      .reduce((a, b) => a + b);
+
+    // extract hashtags
+    const tags = cardTitle
+      .split(" ")
+      .filter((v) => v.startsWith("#"))
+      .map((v) => v.replace("#", ""));
+    // remove all tags from title
+    tags.forEach((x) => {
+      cardTitle = cardTitle.replace("#" + x, "");
+    });
+
+    const newCardArr = {
+      id: lastCardId + 1,
+      title: cardTitle.trim(),
+      value: cardVal,
+      tag: tags
+    };
+
+    return newCardArr;
+  }
 
   render() {
     let pageStyle =
