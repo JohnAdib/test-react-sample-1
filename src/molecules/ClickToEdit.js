@@ -21,18 +21,23 @@ function ClickToEdit(props) {
     inputClass += " hidden";
   }
 
+  const btnArchiverElement = (
+    <div
+      className='archiveBtn flex-none transition invisible group-hover:visible'
+      data-father={props.father}
+      onClick={props.onClickArchive}
+    >
+      <IconArchive className='cursor-pointer rounded transition hover:bg-black/10 p-1 h-6 w-6' />
+    </div>
+  );
+  const btnArchive = props.onClickArchive ? btnArchiverElement : "";
+
   return (
     <div className='group flex flex-row flex-nowrap relative flex-none items-center gap-1 lg:gap-2 px-2 rounded transition hover:bg-white/20 focus:bg-white/40'>
       <div className={divClass} onClick={showEditInput}>
         {props.children}
       </div>
-      <div className='flex-none transition invisible group-hover:visible'>
-        <IconArchive
-          className='cursor-pointer rounded transition hover:bg-black/10 p-1 h-6 w-6'
-          onClick={props.onClickArchive}
-        />
-      </div>
-
+      {btnArchive}
       <Input
         type='text'
         value={props.value}

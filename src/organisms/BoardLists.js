@@ -32,6 +32,7 @@ function elListTitle(props, listID, listTitle) {
         <ClickToEdit
           value={listTitle}
           onChange={props.onChangeListTitle}
+          onClickArchive={props.onArchiveList}
           father={listID}
         >
           {listTitle}

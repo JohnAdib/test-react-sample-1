@@ -82,18 +82,12 @@ class BoardTemplate extends React.Component {
   }
 
   handleArchiveList(event) {
-    console.log(event);
-    console.log("archive list");
-
     const myData = { ...this.state.boardData };
-    let newTitle = event.target.value;
-    if (!newTitle) {
-      newTitle = "List Title";
-    }
-    const listId = parseInt(event.target.dataset.father);
+    const listId = parseInt(event.target.closest("div").dataset.father);
     const listIndex = myData.lists.findIndex((el) => el.id === listId);
-    // change title
-    myData.lists[listIndex].title = newTitle;
+
+    // delete list
+    myData.lists.splice(listIndex, 1);
 
     this.setState({ boardData: myData });
     this.props.onBoardDataChange(myData);
