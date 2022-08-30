@@ -17,6 +17,7 @@ class BoardTemplate extends React.Component {
       this.handleChangeInputAddNewList.bind(this);
     this.handleSubmitNewList = this.handleSubmitNewList.bind(this);
     this.handleChangeListTitle = this.handleChangeListTitle.bind(this);
+    this.handleArchiveList = this.handleArchiveList.bind(this);
 
     this.handleChangeInputAddNewCard =
       this.handleChangeInputAddNewCard.bind(this);
@@ -66,6 +67,24 @@ class BoardTemplate extends React.Component {
   }
 
   handleChangeListTitle(event) {
+    const myData = { ...this.state.boardData };
+    let newTitle = event.target.value;
+    if (!newTitle) {
+      newTitle = "List Title";
+    }
+    const listId = parseInt(event.target.dataset.father);
+    const listIndex = myData.lists.findIndex((el) => el.id === listId);
+    // change title
+    myData.lists[listIndex].title = newTitle;
+
+    this.setState({ boardData: myData });
+    this.props.onBoardDataChange(myData);
+  }
+
+  handleArchiveList(event) {
+    console.log(event);
+    console.log("archive list");
+
     const myData = { ...this.state.boardData };
     let newTitle = event.target.value;
     if (!newTitle) {
@@ -182,6 +201,7 @@ class BoardTemplate extends React.Component {
           onChangeInputAddNewCard={this.handleChangeInputAddNewCard}
           onChangeListTitle={this.handleChangeListTitle}
           onChangeCard={this.handleChangeCard}
+          onArchiveList={this.handleArchiveList}
         />
       </div>
     );
