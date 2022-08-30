@@ -60,6 +60,7 @@ function elCards(props, listId, card) {
               onChange={props.onChangeCard}
               father={myCards.id}
               grandfather={listId}
+              onClickArchive={props.onArchiveCard}
             >
               {elCardDesignTags(myCards.tag)}
               {myCards.title}

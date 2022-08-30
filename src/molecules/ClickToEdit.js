@@ -25,6 +25,7 @@ function ClickToEdit(props) {
     <div
       className='archiveBtn flex-none transition invisible group-hover:visible'
       data-father={props.father}
+      data-grandfather={props.grandfather}
       onClick={props.onClickArchive}
     >
       <IconArchive className='cursor-pointer rounded transition hover:bg-black/10 p-1 h-6 w-6' />
