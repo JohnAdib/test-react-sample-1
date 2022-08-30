@@ -3,7 +3,7 @@ import BoardTemplate from "../templates/BoardTemplate";
 import { data } from "../pages/data.js";
 import Storage from "../tools/Storage";
 
-class TrelloBoard extends React.Component {
+class KanbanBoard extends React.Component {
   getData() {
     const storage = new Storage();
     let myData = storage.get("boardData");
@@ -40,4 +40,4 @@ class TrelloBoard extends React.Component {
   }
 }
 
-export default TrelloBoard;
+export default KanbanBoard;

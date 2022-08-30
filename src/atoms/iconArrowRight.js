@@ -6,7 +6,7 @@ function IconX(props) {
       width={props.size}
       height={props.size}
       fill='currentColor'
-      className={`bi bi-arrow-right ${props.className}`}
+      className={props.className}
       viewBox='0 0 16 16'
     >
       <path
