@@ -1,10 +1,21 @@
 function Select(props) {
-  const options = props.options.map((x) => <option value={x}>{x}</option>);
+  if (!props.options) {
+    return;
+  }
 
-  console.log(options);
+  const options = props.options.map((x) => (
+    <option key={x} value={x}>
+      {x}
+    </option>
+  ));
 
   return (
-    <select id={props.id} className={props.className} onClick={props.onClick}>
+    <select
+      id={props.id}
+      className={props.className}
+      onClick={props.onClick}
+      onChange={props.onChange}
+    >
       {options}
     </select>
   );

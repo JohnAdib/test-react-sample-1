@@ -3,12 +3,17 @@ import Label from "./../atoms/Label";
 
 function Selectbox(props) {
   return (
-    <>
-      <Label for={props.id} className=''>
+    <div className='mb-2'>
+      <Label htmlFor={props.id} className='text-stone-700 w-full block'>
         {props.title}
       </Label>
-      <Select id={props.id} className='' options={props.options} />
-    </>
+      <Select
+        id={props.id}
+        className='w-full p-2 rounded'
+        options={props.options}
+        onChange={props.onChange}
+      />
+    </div>
   );
 }
 

@@ -1,8 +1,8 @@
 function Label(props) {
   return (
-    <Label for={props.for} className={props.className}>
+    <label htmlFor={props.htmlFor} className={props.className}>
       {props.children}
-    </Label>
+    </label>
   );
 }
 
