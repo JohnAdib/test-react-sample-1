@@ -112,8 +112,6 @@ class BoardTemplate extends React.Component {
     const listId = parseInt(event.target.dataset.grandfather);
     const cardId = parseInt(event.target.dataset.father);
 
-    console.log(myData.lists);
-
     const listIndex = parseInt(
       myData.lists.findIndex((el) => el.id === listId)
     );
@@ -121,7 +119,7 @@ class BoardTemplate extends React.Component {
       (el) => el.id === cardId
     );
 
-    const newCardArr = this.validateCardTitle(myData, newVal);
+    const newCardArr = this.validateCardTitle(myData, newVal, cardId);
 
     myData.lists[listIndex].cards[cardIndex] = newCardArr;
 
@@ -129,15 +127,17 @@ class BoardTemplate extends React.Component {
     this.props.onBoardDataChange(myData);
   }
 
-  validateCardTitle(data, cardVal) {
+  validateCardTitle(data, cardVal, cardId) {
     if (!cardVal) {
       return;
     }
     let cardTitle = cardVal;
     // get index of list
-    const lastCardId = data.lists
-      .map((x) => x.cards.length)
-      .reduce((a, b) => a + b);
+    const myCardId = cardId
+      ? cardId
+      : parseInt(
+          data.lists.map((x) => x.cards.length).reduce((a, b) => a + b)
+        ) + 1;
 
     // extract hashtags
     const tags = cardTitle
@@ -150,7 +150,7 @@ class BoardTemplate extends React.Component {
     });
 
     const newCardArr = {
-      id: lastCardId + 1,
+      id: myCardId,
       title: cardTitle.trim(),
       value: cardVal,
       tag: tags
