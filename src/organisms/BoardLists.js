@@ -51,6 +51,7 @@ function elCards(props, listId, card) {
     <div className='px-2 leading-6'>
       {card.map((myCards) => (
         <div
+          draggable
           className='bg-white shadow-sm hover:shaodw-md mb-2 px-2 py-1.5 rounded transition hover:bg-white/50 cursor-pointer'
           key={myCards.id}
         >
