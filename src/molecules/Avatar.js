@@ -1,3 +1,4 @@
+import React from "react"
 import Img from "./../atoms/Img";
 
 function Avatar(props) {
